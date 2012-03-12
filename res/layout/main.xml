@@ -8,7 +8,7 @@
         android:id="@+id/type"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" android:layout_marginBottom="10px" android:layout_marginTop="10px">
+        android:orientation="horizontal" android:layout_marginBottom="5px">
 
         <RadioButton
             android:id="@+id/expense"
@@ -24,24 +24,43 @@
             android:text="Receita" />
     </RadioGroup>
 
-    <TextView
-        android:id="@+id/valueLabel"
+    <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="Valor"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/categoryLabel"
+            android:layout_width="90dp"
+            android:layout_height="fill_parent"
+            android:gravity="right|center_vertical"
+            android:text="Categoria"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
 
+        <TextView
+            android:id="@+id/valueLabel"
+            android:layout_width="90dp"
+            android:layout_height="fill_parent"
+            android:gravity="right|center_vertical"
+            android:text="Valor "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
         <EditText
             android:id="@+id/value"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10px"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
             android:inputType="numberDecimal" >
@@ -51,7 +70,7 @@
         </EditText>
 
         <EditText
-            android:id="@+id/editText1"
+            android:id="@+id/valueCurrency"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
@@ -59,20 +78,40 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/descriptionLabel"
+            android:layout_width="90dp"
+            android:layout_height="fill_parent"
+            android:gravity="right|center_vertical"
+            android:text=" Descrição "
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:inputType="textMultiLine" />
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/record"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="35px"
-        android:text="Registrar" />
+        android:text="Registrar" android:layout_marginBottom="5px"/>
 
     <TextView
         android:id="@+id/balanceLabel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:text="Saldo"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal"/>
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -89,7 +128,7 @@
         </EditText>
 
         <EditText
-            android:id="@+id/EditText01"
+            android:id="@+id/balanceCurrency"
             android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
