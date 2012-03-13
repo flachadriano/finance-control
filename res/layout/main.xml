@@ -45,7 +45,7 @@
             android:layout_weight="0.71" />
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/categoryAdd"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:text="+" />

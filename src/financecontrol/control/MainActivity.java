@@ -1,26 +1,30 @@
-package financecontrol;
+package financecontrol.control;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
-import android.widget.Toast;
+import android.widget.Spinner;
 import financecontrol.android.R;
+import financecontrol.model.Files;
+import financecontrol.model.Functions;
+import financecontrol.model.Messages;
 
 public class MainActivity extends Activity {
-	private static final String FILENAME_TRANSACTIONS = "finance_control_transactions.txt";
-	private static final String FILENAME_BALANCE = "finance_control_balance.txt";
 
 	/** Called when the activity is first created. */
 	@Override
@@ -28,32 +32,34 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 
-		createDefaultFiles();
+		Files.createDefaultFiles(this);
 		
 		loadInitialBalance();
+		loadCategories();
 		
 		Button record = (Button) findViewById(R.id.record);
         record.setOnClickListener(new OnClickListener() {
-
             public void onClick(View arg0) {
                 recordValue();
             }
         });
+
+		Button categoryAdd = (Button) findViewById(R.id.categoryAdd);
+        categoryAdd.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+				// show route screen
+				Intent intent = new Intent(v.getContext(), CategoryActivity.class);
+				startActivity(intent);
+            }
+        });
 	}
 
-	private void createDefaultFiles() {
-		File file = this.getFilesDir();
-		
-		new File(file + "/" + FILENAME_BALANCE);
-		new File(file + "/" + FILENAME_TRANSACTIONS);
-	}
-	
 	private void loadInitialBalance() {
 		try {
 
-			FileInputStream input = this.openFileInput(FILENAME_BALANCE);
+			FileInputStream input = this.openFileInput(Files.FILENAME_BALANCE);
 			File file = this.getFilesDir();
-			File textfile = new File(file + "/" + FILENAME_BALANCE);
+			File textfile = new File(file + "/" + Files.FILENAME_BALANCE);
 			byte[] buffer = new byte[(int) textfile.length()];
 			input.read(buffer);
 			
@@ -66,6 +72,39 @@ public class MainActivity extends Activity {
 		}
 	}
 
+	private void loadCategories() {
+        FileOutputStream outCategory = null;
+        try {
+
+			FileInputStream input = this.openFileInput(Files.FILENAME_CATEGORIES);
+			File file = this.getFilesDir();
+			File textfile = new File(file + "/" + Files.FILENAME_CATEGORIES);
+			byte[] buffer = new byte[(int) textfile.length()];
+			input.read(buffer);
+			
+			String value = new String(buffer);
+			
+			Spinner category = (Spinner) findViewById(R.id.category);
+			ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, value.split("\n"));
+			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+			category.setAdapter(adapter);
+
+        } catch (FileNotFoundException e) {
+        	Functions.showMessage(this, Messages.FILE_NOT_FOUND);
+		} catch (IOException e) {
+        	Functions.showMessage(this, Messages.FILE_NOT_FOUND);
+		} catch (IllegalArgumentException e) {
+			Functions.showMessage(this, e.getMessage());
+		}finally {
+            try {
+				if (outCategory != null) {
+	            	outCategory.flush();
+		            outCategory.close();
+				}
+			} catch (IOException e) {}
+        }
+	}
+	
 	private void recordValue() {
         FileOutputStream outBalance = null;
         FileOutputStream outTransaction = null;
@@ -73,7 +112,7 @@ public class MainActivity extends Activity {
         	
         	EditText valueEdit = (EditText) findViewById(R.id.value);
         	if (valueEdit.getText().toString().equals("")) {
-        		throw new IllegalArgumentException("Informe um valor para a transação.");
+        		throw new IllegalArgumentException(Messages.VALUE_TRANSACTION);
         	}
 			Float value = Float.parseFloat(valueEdit.getText().toString());
             valueEdit.setText("");
@@ -90,9 +129,10 @@ public class MainActivity extends Activity {
 			Float result = balance + value;
 			balanceEdit.setText(result.toString());
 
-			outBalance = this.openFileOutput(FILENAME_BALANCE, Context.MODE_PRIVATE);
+			outBalance = this.openFileOutput(Files.FILENAME_BALANCE, Context.MODE_PRIVATE);
             outBalance.write(result.toString().getBytes());
-            outTransaction = this.openFileOutput(FILENAME_TRANSACTIONS, Context.MODE_APPEND);
+            
+            outTransaction = this.openFileOutput(Files.FILENAME_TRANSACTIONS, Context.MODE_APPEND);
             outTransaction.write(DateFormat.format("dd/MM/yyyy hh:mm:ss", new Date()).toString().getBytes());
             outTransaction.write("|".getBytes());
             outTransaction.write(value.toString().getBytes());
@@ -100,15 +140,13 @@ public class MainActivity extends Activity {
             outTransaction.write(description.getBytes());
             outTransaction.write("\n".getBytes());
             
-        } catch (Exception e) {
-        	// splash screen message
-        	Context context = getApplicationContext();
-        	CharSequence text = e.getMessage();
-        	int duration = Toast.LENGTH_SHORT;
-
-        	Toast toast = Toast.makeText(context, text, duration);
-        	toast.show();
-        } finally {
+        } catch (FileNotFoundException e) {
+        	Functions.showMessage(this, Messages.FILE_NOT_FOUND);
+		} catch (IOException e) {
+        	Functions.showMessage(this, Messages.FILE_NOT_FOUND);
+		} catch (IllegalArgumentException e) {
+			Functions.showMessage(this, e.getMessage());
+		}finally {
             try {
 				if (outBalance != null) {
 	            	outBalance.flush();
