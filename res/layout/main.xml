@@ -40,8 +40,15 @@
 
         <Spinner
             android:id="@+id/category"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.71" />
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:text="+" />
     </LinearLayout>
 
     <LinearLayout
@@ -71,7 +78,7 @@
 
         <EditText
             android:id="@+id/valueCurrency"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
             android:text="R$" />
@@ -129,7 +136,7 @@
 
         <EditText
             android:id="@+id/balanceCurrency"
-            android:layout_width="60dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:gravity="center_vertical|center_horizontal"
             android:text="R$" />
