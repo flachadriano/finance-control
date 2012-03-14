@@ -17,6 +17,7 @@ import android.view.View.OnClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.Spinner;
 import financecontrol.android.R;
@@ -36,20 +37,22 @@ public class MainActivity extends Activity {
 		
 		loadInitialBalance();
 		loadCategories();
-		
-		Button record = (Button) findViewById(R.id.record);
-        record.setOnClickListener(new OnClickListener() {
-            public void onClick(View arg0) {
-                recordValue();
-            }
-        });
 
-		Button categoryAdd = (Button) findViewById(R.id.categoryAdd);
+		ImageView categoryAdd = (ImageView) findViewById(R.id.categoryAdd);
         categoryAdd.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
 				// show route screen
 				Intent intent = new Intent(v.getContext(), CategoryActivity.class);
 				startActivity(intent);
+            }
+        });
+        
+        EditText description = (EditText) findViewById(R.id.description);
+        
+		Button record = (Button) findViewById(R.id.record);
+        record.setOnClickListener(new OnClickListener() {
+            public void onClick(View arg0) {
+                recordValue();
             }
         });
 	}

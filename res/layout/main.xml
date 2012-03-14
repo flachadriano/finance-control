@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" >
+    android:orientation="vertical" android:background="@drawable/background">
 
     <RadioGroup
         android:id="@+id/type"
@@ -24,45 +24,43 @@
             android:text="Receita" />
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/categoryLabel"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:text="Categoria"
+        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal"/>
+
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/categoryLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/categoryLabel"
-            android:layout_width="90dp"
-            android:layout_height="fill_parent"
-            android:gravity="right|center_vertical"
-            android:text="Categoria"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
         <Spinner
             android:id="@+id/category"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent"
-            android:layout_weight="0.71" />
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
 
-        <Button
+        <ImageView
             android:id="@+id/categoryAdd"
             android:layout_width="50dp"
-            android:layout_height="wrap_content"
-            android:text="+" />
+            android:layout_height="fill_parent"
+            android:src="@drawable/category_add" />
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="265dp"
+        android:layout_height="wrap_content"
+        android:text="Valor"
+        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal"/>
+
     <LinearLayout
-        android:id="@+id/linearLayout2"
+        android:id="@+id/valueLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/valueLabel"
-            android:layout_width="90dp"
-            android:layout_height="fill_parent"
-            android:gravity="right|center_vertical"
-            android:text="Valor "
-            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <EditText
             android:id="@+id/value"
@@ -70,60 +68,44 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" >
+            android:inputType="numberDecimal">
 
             <requestFocus />
 
         </EditText>
 
-        <EditText
+        <ImageView
             android:id="@+id/valueCurrency"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="R$" />
+            android:src="@drawable/currency" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+    <EditText
+        android:id="@+id/description"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/descriptionLabel"
-            android:layout_width="90dp"
-            android:layout_height="fill_parent"
-            android:gravity="right|center_vertical"
-            android:text=" Descrição "
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-
-        <EditText
-            android:id="@+id/description"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:inputType="textMultiLine" />
-
-    </LinearLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:inputType="textMultiLine"
+        android:text="Descrição" />
 
     <Button
         android:id="@+id/record"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar" android:layout_marginBottom="5px"/>
-
-    <TextView
-        android:id="@+id/balanceLabel"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="Saldo"
-        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal"/>
+        android:text="Registrar" android:layout_marginBottom="10px"/>
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/balanceLayout"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/balanceImage"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/balance" />
 
         <EditText
             android:id="@+id/balance"
@@ -131,15 +113,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal">
+            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false">
         </EditText>
 
-        <EditText
+        <ImageView
             android:id="@+id/balanceCurrency"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:gravity="center_vertical|center_horizontal"
-            android:text="R$" />
+            android:src="@drawable/currency" />
 
     </LinearLayout>
 
