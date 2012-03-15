@@ -10,10 +10,12 @@ import java.util.Date;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.format.DateFormat;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnFocusChangeListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -47,7 +49,19 @@ public class MainActivity extends Activity {
             }
         });
         
-        EditText description = (EditText) findViewById(R.id.description);
+        final EditText description = (EditText) findViewById(R.id.description);
+        description.setOnFocusChangeListener(new OnFocusChangeListener() {
+			@Override
+			public void onFocusChange(View v, boolean hasFocus) {
+				if (hasFocus) {
+					if (description.getText().toString().equals("Descrição")) {
+						description.setText("");
+					}
+				} else if (description.getText().toString().equals("")) {
+					description.setText("Descrição");
+				}
+			}
+		});
         
 		Button record = (Button) findViewById(R.id.record);
         record.setOnClickListener(new OnClickListener() {

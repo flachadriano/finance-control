@@ -8,7 +8,7 @@
         android:id="@+id/type"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal" android:layout_marginBottom="5px">
+        android:orientation="horizontal">
 
         <RadioButton
             android:id="@+id/expense"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal">
+            android:inputType="numberDecimal" android:layout_marginRight="-5px">
 
             <requestFocus />
 
@@ -78,7 +78,7 @@
             android:id="@+id/valueCurrency"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/currency" />
+            android:src="@drawable/currency" android:layout_marginRight="5px"/>
 
     </LinearLayout>
 
@@ -86,7 +86,6 @@
         android:id="@+id/description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5px"
         android:inputType="textMultiLine"
         android:text="Descrição" />
 
@@ -113,14 +112,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false">
+            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false" android:layout_marginRight="-5px">
         </EditText>
 
         <ImageView
             android:id="@+id/balanceCurrency"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/currency" />
+            android:src="@drawable/currency" android:layout_marginRight="5px"/>
 
     </LinearLayout>
 
