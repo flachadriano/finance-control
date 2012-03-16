@@ -15,13 +15,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Despesa" android:layout_marginRight="35px" android:layout_marginLeft="35px"/>
+            android:text="Despesa" android:layout_marginLeft="20px" android:background="@drawable/radio_button" android:width="90px" android:layout_marginRight="20px"/>
 
         <RadioButton
             android:id="@+id/revenue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Receita" />
+            android:text="Receita" android:background="@drawable/radio_button" android:width="90px"/>
     </RadioGroup>
 
     <TextView
@@ -41,7 +41,7 @@
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            android:layout_weight="1" android:background="@drawable/spinner"/>
 
         <ImageView
             android:id="@+id/categoryAdd"
@@ -51,11 +51,11 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/valueLabel"
         android:layout_width="265dp"
         android:layout_height="wrap_content"
         android:text="Valor"
-        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal"/>
+        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal" />
 
     <LinearLayout
         android:id="@+id/valueLayout"
@@ -68,7 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" android:layout_marginRight="-5px">
+            android:inputType="numberDecimal" android:layout_marginRight="-5px" android:background="@drawable/edit_text" android:layout_marginLeft="5px">
 
             <requestFocus />
 
@@ -87,13 +87,13 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:inputType="textMultiLine"
-        android:text="Descrição" />
+        android:text="Descrição" android:background="@drawable/edit_text" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginBottom="5px"/>
 
     <Button
         android:id="@+id/record"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar" android:layout_marginBottom="10px"/>
+        android:text="Registrar" android:layout_marginBottom="10px" android:background="@drawable/button_save" android:layout_marginLeft="5px" android:layout_marginRight="5px"/>
 
     <LinearLayout
         android:id="@+id/balanceLayout"
@@ -112,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false" android:layout_marginRight="-5px">
+            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false" android:layout_marginRight="-5px" android:background="@drawable/edit_text">
         </EditText>
 
         <ImageView
