@@ -41,7 +41,7 @@
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" android:background="@drawable/spinner"/>
+            android:layout_weight="1" android:background="@drawable/spinner" android:layout_marginLeft="5px" android:layout_marginBottom="5px"/>
 
         <ImageView
             android:id="@+id/categoryAdd"
@@ -49,13 +49,6 @@
             android:layout_height="fill_parent"
             android:src="@drawable/category_add" />
     </LinearLayout>
-
-    <TextView
-        android:id="@+id/valueLabel"
-        android:layout_width="265dp"
-        android:layout_height="wrap_content"
-        android:text="Valor"
-        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal" />
 
     <LinearLayout
         android:id="@+id/valueLayout"
@@ -68,17 +61,17 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" android:layout_marginRight="-5px" android:background="@drawable/edit_text" android:layout_marginLeft="5px">
+            android:inputType="numberDecimal" android:background="@drawable/edit_text" android:layout_marginLeft="5px" android:text="0.00" android:layout_marginBottom="5px">
 
             <requestFocus />
 
         </EditText>
 
         <ImageView
-            android:id="@+id/valueCurrency"
+            android:id="@+id/valueCurreny"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/currency" android:layout_marginRight="5px"/>
+            android:src="@drawable/currency"/>
 
     </LinearLayout>
 
@@ -112,14 +105,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false" android:layout_marginRight="-5px" android:background="@drawable/edit_text">
+            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false" android:background="@drawable/edit_text">
         </EditText>
 
         <ImageView
             android:id="@+id/balanceCurrency"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/currency" android:layout_marginRight="5px"/>
+            android:src="@drawable/currency"/>
 
     </LinearLayout>
 
