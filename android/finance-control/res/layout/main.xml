@@ -2,34 +2,34 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:orientation="vertical" >
 
     <RadioGroup
         android:id="@+id/type"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal" android:layout_marginBottom="10px" android:layout_marginTop="5px">
 
         <RadioButton
             android:id="@+id/expense"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="15px"
+            android:background="@drawable/radio_button"
             android:checked="true"
-            android:text="Despesa" android:layout_marginLeft="20px" android:background="@drawable/radio_button" android:width="90px" android:layout_marginRight="20px"/>
+            android:text="Despesa"
+            android:width="105px" android:textSize="15px"/>
 
         <RadioButton
             android:id="@+id/revenue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Receita" android:background="@drawable/radio_button" android:width="90px"/>
+            android:background="@drawable/radio_button"
+            android:text="Receita"
+            android:width="105px" android:textSize="15px"/>
     </RadioGroup>
-
-    <TextView
-        android:id="@+id/categoryLabel"
-        android:layout_width="265dp"
-        android:layout_height="wrap_content"
-        android:text="Categoria"
-        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal"/>
 
     <LinearLayout
         android:id="@+id/categoryLayout"
@@ -41,7 +41,10 @@
             android:id="@+id/category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" android:background="@drawable/spinner" android:layout_marginLeft="5px" android:layout_marginBottom="5px"/>
+            android:layout_marginBottom="5px"
+            android:layout_marginLeft="5px"
+            android:layout_weight="1"
+            android:background="@drawable/spinner"/>
 
         <ImageView
             android:id="@+id/categoryAdd"
@@ -59,34 +62,44 @@
             android:id="@+id/value"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5px"
+            android:layout_marginLeft="5px"
             android:layout_weight="1"
+            android:background="@drawable/edit_text"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" android:background="@drawable/edit_text" android:layout_marginLeft="5px" android:text="0.00" android:layout_marginBottom="5px">
+            android:inputType="numberDecimal"
+            android:text="0.00" android:textSize="15px">
 
             <requestFocus />
-
         </EditText>
 
         <ImageView
             android:id="@+id/valueCurreny"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/currency"/>
-
+            android:src="@drawable/currency" />
     </LinearLayout>
 
     <EditText
         android:id="@+id/description"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="5px"
+        android:background="@drawable/edit_text"
         android:inputType="textMultiLine"
-        android:text="Descrição" android:background="@drawable/edit_text" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:layout_marginBottom="5px"/>
+        android:text="Descrição" />
 
     <Button
         android:id="@+id/record"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Registrar" android:layout_marginBottom="10px" android:background="@drawable/button_save" android:layout_marginLeft="5px" android:layout_marginRight="5px"/>
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="5px"
+        android:background="@drawable/button_save"
+        android:text="Registrar" android:textColor="@color/white" android:textSize="15px"/>
 
     <LinearLayout
         android:id="@+id/balanceLayout"
@@ -104,16 +117,18 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
             android:gravity="center_vertical|center_horizontal"
-            android:inputType="numberDecimal" android:focusable="false" android:focusableInTouchMode="false" android:background="@drawable/edit_text">
+            android:inputType="numberDecimal" android:textSize="15px">
         </EditText>
 
         <ImageView
             android:id="@+id/balanceCurrency"
             android:layout_width="50dp"
             android:layout_height="wrap_content"
-            android:src="@drawable/currency"/>
-
+            android:src="@drawable/currency" />
     </LinearLayout>
 
 </LinearLayout>
