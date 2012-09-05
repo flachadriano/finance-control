@@ -78,9 +78,9 @@ public class MainActivity extends Activity {
 			File textfile = new File(file + "/" + Files.FILENAME_BALANCE);
 			byte[] buffer = new byte[(int) textfile.length()];
 			input.read(buffer);
+			String value = new String(buffer);
 			
 			EditText balance = (EditText) findViewById(R.id.balance);
-			String value = new String(buffer);
 			balance.setText(value.equals("") ? "0" : value);
 
 		} catch (Exception e) {
@@ -126,6 +126,12 @@ public class MainActivity extends Activity {
         FileOutputStream outTransaction = null;
         try {
         	
+			RadioButton expenseRadioButton = (RadioButton) findViewById(R.id.expense);
+			int expense = expenseRadioButton.isChecked() ? 1 : 2;
+        	
+        	Spinner categorySpinner = (Spinner) findViewById(R.id.category);
+        	String category = categorySpinner.getSelectedItem().toString();
+        	
         	EditText valueEdit = (EditText) findViewById(R.id.value);
         	if (valueEdit.getText().toString().equals("")) {
         		throw new IllegalArgumentException(Messages.VALUE_TRANSACTION);
@@ -135,21 +141,21 @@ public class MainActivity extends Activity {
             
             EditText descriptionEdit = (EditText) findViewById(R.id.description);
 			String description = descriptionEdit.getText().toString();
-			
-			RadioButton expense = (RadioButton) findViewById(R.id.expense);
-			if (expense.isChecked())
-				value *= -1;
 
 			EditText balanceEdit = (EditText) findViewById(R.id.balance);
 			Float balance = Float.parseFloat(balanceEdit.getText().toString().equals("") ? "0" : balanceEdit.getText().toString());
-			Float result = balance + value;
+			Float result = balance + (expense==1 ? value*-1 : value);
 			balanceEdit.setText(result.toString());
 
 			outBalance = this.openFileOutput(Files.FILENAME_BALANCE, Context.MODE_PRIVATE);
             outBalance.write(result.toString().getBytes());
             
             outTransaction = this.openFileOutput(Files.FILENAME_TRANSACTIONS, Context.MODE_APPEND);
-            outTransaction.write(DateFormat.format("dd/MM/yyyy hh:mm:ss", new Date()).toString().getBytes());
+            outTransaction.write(DateFormat.format("dd/MM/yyyy", new Date()).toString().getBytes());
+            outTransaction.write("|".getBytes());
+            outTransaction.write(expense);
+            outTransaction.write("|".getBytes());
+            outTransaction.write(category.getBytes());
             outTransaction.write("|".getBytes());
             outTransaction.write(value.toString().getBytes());
             outTransaction.write("|".getBytes());

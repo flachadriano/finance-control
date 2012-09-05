@@ -9,19 +9,20 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="Cadastrar Categoria"
-        android:textAppearance="?android:attr/textAppearanceLarge" android:gravity="center_horizontal" android:layout_marginBottom="50px"/>
+        android:textAppearance="?android:attr/textAppearanceLarge" android:gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/categoryLabel"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
         android:text="Nome"
-        android:textAppearance="?android:attr/textAppearanceMedium" android:gravity="center_horizontal"/>
+        android:textAppearance="?android:attr/textAppearanceMedium" android:textSize="15px" android:layout_marginTop="10px"/>
 
     <EditText
         android:id="@+id/category"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content" android:layout_marginBottom="50px" android:background="@drawable/edit_text" android:layout_marginLeft="5px" android:layout_marginRight="5px">
+        android:layout_height="wrap_content" android:layout_marginBottom="10px" android:background="@drawable/edit_text" android:layout_marginLeft="5px" android:layout_marginRight="5px">
 
         <requestFocus />
     </EditText>
@@ -30,6 +31,6 @@
         android:id="@+id/record"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="Cadastrar" android:background="@drawable/button_save" android:layout_marginLeft="5px" android:layout_marginRight="5px"/>
+        android:text="Cadastrar" android:background="@drawable/button_save" android:layout_marginLeft="5px" android:layout_marginRight="5px" android:textColor="@color/white" android:textSize="15px"/>
 
 </LinearLayout>
