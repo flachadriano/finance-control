@@ -20,6 +20,8 @@
         </activity>
         <activity android:name="financecontrol.control.CategoryActivity" >
         </activity>
+        <activity android:name="financecontrol.control.ListActivity" >
+        </activity>
     </application>
 
 </manifest>

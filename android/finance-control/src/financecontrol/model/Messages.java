@@ -11,5 +11,6 @@ public class Messages {
 	// errors
 	public static final String FILE_NOT_FOUND = "Arquivo n‹o encontrado.";
 	public static final String WRITE_ERROR = "Erro ao gravar no arquivo.";
+	public static final String LIST_ERROR = "Erro ao listar as contas: ";
 	
 }

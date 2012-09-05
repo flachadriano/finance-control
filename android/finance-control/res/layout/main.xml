@@ -131,4 +131,10 @@
             android:src="@drawable/currency" />
     </LinearLayout>
 
+    <Button
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar contas" android:layout_marginTop="10px" android:background="@drawable/button_save" android:textSize="15px" android:textColor="@color/white"/>
+
 </LinearLayout>

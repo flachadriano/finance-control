@@ -1,7 +1,5 @@
 package financecontrol.control;
 
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -68,18 +66,22 @@ public class MainActivity extends Activity {
                 recordValue();
             }
         });
+        
+        Button list = (Button) findViewById(R.id.list);
+        list.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// list of transactions
+				Intent intent = new Intent(v.getContext(), ListActivity.class);
+				startActivity(intent);
+			}
+		});
 	}
 
 	private void loadInitialBalance() {
 		try {
 
-			FileInputStream input = this.openFileInput(Files.FILENAME_BALANCE);
-			File file = this.getFilesDir();
-			File textfile = new File(file + "/" + Files.FILENAME_BALANCE);
-			byte[] buffer = new byte[(int) textfile.length()];
-			input.read(buffer);
-			String value = new String(buffer);
-			
+			String value = Functions.openFileAndObtainContent(this, Files.FILENAME_BALANCE);			
 			EditText balance = (EditText) findViewById(R.id.balance);
 			balance.setText(value.equals("") ? "0" : value);
 
@@ -92,14 +94,7 @@ public class MainActivity extends Activity {
         FileOutputStream outCategory = null;
         try {
 
-			FileInputStream input = this.openFileInput(Files.FILENAME_CATEGORIES);
-			File file = this.getFilesDir();
-			File textfile = new File(file + "/" + Files.FILENAME_CATEGORIES);
-			byte[] buffer = new byte[(int) textfile.length()];
-			input.read(buffer);
-			
-			String value = new String(buffer);
-			
+			String value = Functions.openFileAndObtainContent(this, Files.FILENAME_CATEGORIES);			
 			Spinner category = (Spinner) findViewById(R.id.category);
 			ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, android.R.layout.simple_spinner_item, value.split("\n"));
 			adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -159,7 +154,7 @@ public class MainActivity extends Activity {
             outTransaction.write("|".getBytes());
             outTransaction.write(value.toString().getBytes());
             outTransaction.write("|".getBytes());
-            outTransaction.write(description.getBytes());
+            outTransaction.write("Descrição".equals(description) ? "".getBytes() : description.getBytes());
             outTransaction.write("\n".getBytes());
             
         } catch (FileNotFoundException e) {
