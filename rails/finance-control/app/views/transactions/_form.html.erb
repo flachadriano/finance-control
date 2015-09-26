@@ -13,11 +13,11 @@
 
   <div class="field">
     <%= f.label :kind %><br>
-    <%= f.number_field :kind %>
+    <%= f.select :kind, [["Expense", 1], ["Revenue", 2]] %>
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.text_field :category_id %>
+    <%= f.select :category_id, Category.all.sort_by{ |c| c.name.downcase }.collect{ |c| [ c.name, c.id ] } %>
   </div>
   <div class="field">
     <%= f.label :payday %><br>
