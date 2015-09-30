@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical" >
+
+    <RadioGroup
+        android:id="@+id/type"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" android:layout_marginBottom="10px" android:layout_marginTop="5px">
+
+        <RadioButton
+            android:id="@+id/expense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10px"
+            android:layout_marginRight="15px"
+            android:background="@drawable/radio_button"
+            android:checked="true"
+            android:text="Despesa"
+            android:width="105px" android:textSize="15px"/>
+
+        <RadioButton
+            android:id="@+id/revenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/radio_button"
+            android:text="Receita"
+            android:width="105px" android:textSize="15px"/>
+    </RadioGroup>
+
+    <LinearLayout
+        android:id="@+id/categoryLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Spinner
+            android:id="@+id/category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5px"
+            android:layout_marginLeft="5px"
+            android:layout_weight="1"
+            android:background="@drawable/spinner"/>
+
+        <ImageView
+            android:id="@+id/categoryAdd"
+            android:layout_width="50dp"
+            android:layout_height="fill_parent"
+            android:src="@drawable/category_add" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/valueLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/value"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5px"
+            android:layout_marginLeft="5px"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:gravity="center_vertical|center_horizontal"
+            android:inputType="numberDecimal"
+            android:text="0.00" android:textSize="15px">
+
+            <requestFocus />
+        </EditText>
+
+        <ImageView
+            android:id="@+id/valueCurreny"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/currency" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/description"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5px"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="5px"
+        android:background="@drawable/edit_text"
+        android:inputType="textMultiLine"
+        android:text="Descrição" />
+
+    <Button
+        android:id="@+id/record"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10px"
+        android:layout_marginLeft="5px"
+        android:layout_marginRight="5px"
+        android:background="@drawable/button_save"
+        android:text="Registrar" android:textColor="@color/white" android:textSize="15px"/>
+
+    <LinearLayout
+        android:id="@+id/balanceLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/balanceImage"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/balance" />
+
+        <EditText
+            android:id="@+id/balance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/edit_text"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            android:gravity="center_vertical|center_horizontal"
+            android:inputType="numberDecimal" android:textSize="15px">
+        </EditText>
+
+        <ImageView
+            android:id="@+id/balanceCurrency"
+            android:layout_width="50dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/currency" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Listar contas" android:layout_marginTop="10px" android:background="@drawable/button_save" android:textSize="15px" android:textColor="@color/white"/>
+
+</LinearLayout>
