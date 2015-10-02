@@ -21,6 +21,28 @@ developed with http://lumzy.com/app/
 
 # How to work through Cloud9
 
+## Create user on database
+
+Based on http://www.tynecastle.nl/blog/2014/11/05/setup-postgresql-on-cloud9
+
+Start the Postgresql
+$ sudo service postgresql start
+
+Access the postgresql terminal
+$ sudo sudo -u postgres psql
+
+Create the user in the database
+$ # create user "username" with password 'password';
+
+Grant the user
+$ # alter user "username" superuser;
+
+Create the databases
+$ # CREATE DATABASE project_test WITH OWNER "username";
+$ # CREATE DATABASE project_development WITH OWNER "username";
+
+## When restart the workspace
+
 Start the Postgresql
 $ sudo service postgresql start
 
