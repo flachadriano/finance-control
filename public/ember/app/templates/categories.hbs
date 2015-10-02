@@ -1,0 +1,7 @@
+<h1>Categorias</h1>
+
+{{link-to "Criar categoria" "categories/new"}}
+
+{{#each model as |category|}}
+	<p>{{category.name}}</p>
+{{/each}}
