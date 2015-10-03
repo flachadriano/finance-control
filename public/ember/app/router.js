@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-	this.route('categories', function() {
+	this.resource('categories', function() {
 		this.route('new');
 	});
 	this.route('transactions');
