@@ -8,7 +8,7 @@ export default Ember.ObjectController.extend({
 				name: this.get('name')
 			});
 
-			category.save().then(function(data) {
+			category.save().then(function() {
 				controller.transationToRoute('categories');
 			});
 		}

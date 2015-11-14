@@ -3,5 +3,9 @@
 {{link-to "Criar categoria" "categories.new"}}
 
 {{#each model as |category|}}
-	<p>{{category.name}}</p>
+	<p>
+		{{category.name}}
+		{{link-to "Editar" "categories.edit" category}}
+		<button {{action 'destroy'}}>Deletar</button>
+	</p>
 {{/each}}

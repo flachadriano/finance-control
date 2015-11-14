@@ -2,14 +2,18 @@ import Ember from 'ember';
 import config from './config/environment';
 
 var Router = Ember.Router.extend({
-  location: config.locationType
+  location: config.locationType,
 });
 
 Router.map(function() {
-	this.resource('categories', function() {
-		this.route('new');
-	});
-	this.route('transactions');
+  this.resource('categories', function() {
+    this.route('new');
+    this.route('edit', {
+      path: '/:category_id',
+    });
+  });
+
+  this.route('transactions');
 });
 
 export default Router;
